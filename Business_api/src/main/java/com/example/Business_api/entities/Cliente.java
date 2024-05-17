@@ -19,14 +19,14 @@ public class Cliente {
     private String nombre;
     private String apellido;
     private String direccion;
-    private String telefono;
+    private Integer telefono;
     private String email;
 
     public Cliente() {
         // Constructor vacío
     }
 
-    public Cliente(long id, String nombre, String apellido, String direccion, String telefono, String email) {
+    public Cliente(long id, String nombre, String apellido, String direccion, Integer telefono, String email) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -70,11 +70,11 @@ public class Cliente {
         this.direccion = direccion;
     }
 
-    public String getTelefono() {
+    public Integer getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(Integer telefono) {
         this.telefono = telefono;
     }
 
