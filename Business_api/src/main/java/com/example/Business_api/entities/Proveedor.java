@@ -19,7 +19,7 @@ public class Proveedor {
 
     private String nombre;
     private String direccion;
-    private String telefono;
+    private Integer telefono;
     private String email;
 
     // Constructor vacío
@@ -27,7 +27,7 @@ public class Proveedor {
     }
 
     // Constructor con argumentos
-    public Proveedor(Long id, String nombre, String direccion, String telefono, String email) {
+    public Proveedor(Long id, String nombre, String direccion, Integer telefono, String email) {
         this.id = id;
         this.nombre = nombre;
         this.direccion = direccion;
@@ -59,11 +59,11 @@ public class Proveedor {
         this.direccion = direccion;
     }
 
-    public String getTelefono() {
+    public Integer getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(Integer telefono) {
         this.telefono = telefono;
     }
 
