@@ -5,12 +5,14 @@ package com.example.Business_api.controllers;
 import com.example.Business_api.entities.Product;
 import com.example.Business_api.services.ProductServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 //paso 5 <controlador>
 @RestController
+@CrossOrigin("http://127.0.0.1:5500")
 @RequestMapping("/api/products")
 public class ProductControllers {
 
@@ -42,7 +44,8 @@ public class ProductControllers {
     }
 
     //localhost:8080/products/5
-    @DeleteMapping(value="/{id}")
+    @DeleteMapping(value ="/{id}")
+    @CrossOrigin(origins = "http://localhost:5500")
     public void delete(@PathVariable Long id){
 
         productServices.delate(id);

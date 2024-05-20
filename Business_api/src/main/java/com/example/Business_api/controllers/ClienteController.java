@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @RestController
+@CrossOrigin("http://localhost:8080/")
 @RequestMapping("/api/clientes")
 public class ClienteController {
 
@@ -42,3 +43,23 @@ public class ClienteController {
         return ResponseEntity.ok().build();
     }
 }
+/*package com.example.Business_api;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+@Configuration
+@EnableWebMvc
+public class CorsConfig implements WebMvcConfigurer {
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("*")
+                .allowedMethods("GET", "POST", "PUT", "DELETE")
+                .allowedHeaders("*")
+                .allowedOriginPatterns("*");
+    }
+}*/
