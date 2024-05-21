@@ -13,7 +13,7 @@ public class Compra {
     private Long id;
     private String Cliente;
     private Long nit;
-    private double total;
+    private Double total;
 
     @Column(name ="created_at")
     @Temporal(TemporalType.DATE) //espesificar q es tipo fecha
@@ -53,11 +53,11 @@ public class Compra {
         this.createdAt = createdAt;
     }
 
-    public double getTotal() {
+    public Double getTotal() {
         return total;
     }
 
-    public void setTotal(double total) {
+    public void setTotal(Double total) {
         this.total = total;
     }
 }
