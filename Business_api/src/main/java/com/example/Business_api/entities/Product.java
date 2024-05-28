@@ -15,6 +15,7 @@ public class Product {
     private String name;
     private Double price;
     private String description;
+    private String category;
 
 
     @Column(name ="created_at")
@@ -22,6 +23,14 @@ public class Product {
     private Date createdAt;
 
     //Getters and setters
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
 
     public Long getId() {
         return id;
