@@ -2,6 +2,8 @@ package com.example.Business_api.entities;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.Date;
 
@@ -12,7 +14,11 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)//autoincremental
     private Long id;
+
+    @NotEmpty
     private String name;
+
+    @NotNull
     private Double price;
     private String description;
     private String category;
