@@ -1,13 +1,11 @@
 package com.example.Business_api.entities;
 
 import jakarta.persistence.*;
-import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Data
 @Table(name = "Carrito")
 public class Carrito {
     @Id

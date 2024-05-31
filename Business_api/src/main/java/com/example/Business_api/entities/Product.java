@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
 import java.util.Date;
+import java.util.List;
 
 //Paso 1
 @Entity
@@ -27,6 +28,11 @@ public class Product {
     @Column(name ="created_at")
     @Temporal(TemporalType.DATE) //espesificar q es tipo fecha
     private Date createdAt;
+
+    @ManyToMany(mappedBy = "productos")
+    private List<Carrito> carritos;
+    @ManyToMany(mappedBy = "productos")
+    private List<Compra> compras;
 
     //Getters and setters
 
@@ -77,4 +83,29 @@ public class Product {
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
+
+    public List<Carrito> getCarritos() {
+        return carritos;
+    }
+
+    public void setCarritos(List<Carrito> carritos) {
+        this.carritos = carritos;
+    }
+
+    public List<Compra> getCompras() {
+        return compras;
+    }
+
+    public void setCompras(List<Compra> compras) {
+        this.compras = compras;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
 }
