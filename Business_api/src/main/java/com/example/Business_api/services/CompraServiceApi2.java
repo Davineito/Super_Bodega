@@ -25,6 +25,9 @@ public class CompraServiceApi2 {
     @Autowired
     private ProductoRepository productoRepository;
 
+    @Autowired
+    private NotificationService notificationService;
+
     @Transactional
     public Compra realizarCompra(Long clienteId, List<Long> productoIds) {
         Cliente cliente = clienteRepository.findById(clienteId).orElseThrow(() -> new RuntimeException("Cliente no encontrado"));
@@ -35,7 +38,7 @@ public class CompraServiceApi2 {
         }
         Compra compra = new Compra();
         compra.setCliente(cliente);
-        compra.setProductos(productos);
+        compra.setProduct(productos);
         compra.setFechaCompra(new Date());
 
         // Reducir el inventario de los productos (opcional)
@@ -49,6 +52,7 @@ public class CompraServiceApi2 {
             }
             */
 
+        notificationService.sendMessage("Compra realizada por " + cliente.getNombre() + " con " + productos.size() + " productos");
         return compraRepository.save(compra);
     }
 }

@@ -12,11 +12,11 @@ public class Carrito {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @OneToOne
     private Cliente cliente;
 
     @ManyToMany
-    private List<Product> productos = new ArrayList<>();
+    private List<Product> productos;
 
     //Getter y setters
 

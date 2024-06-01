@@ -1,6 +1,7 @@
 package com.example.Business_api.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -29,10 +30,12 @@ public class Product {
     @Temporal(TemporalType.DATE) //espesificar q es tipo fecha
     private Date createdAt;
 
-    @ManyToMany(mappedBy = "productos")
-    private List<Carrito> carritos;
-    @ManyToMany(mappedBy = "productos")
-    private List<Compra> compras;
+    @ManyToMany
+    @JsonIgnore
+    private List<Carrito> carrito;
+
+    @ManyToMany(mappedBy = "product")
+    private List<Compra> compra;
 
     //Getters and setters
 
@@ -85,19 +88,19 @@ public class Product {
     }
 
     public List<Carrito> getCarritos() {
-        return carritos;
+        return carrito;
     }
 
     public void setCarritos(List<Carrito> carritos) {
-        this.carritos = carritos;
+        this.carrito = carritos;
     }
 
     public List<Compra> getCompras() {
-        return compras;
+        return compra;
     }
 
     public void setCompras(List<Compra> compras) {
-        this.compras = compras;
+        this.compra = compras;
     }
 
     public String getDescription() {

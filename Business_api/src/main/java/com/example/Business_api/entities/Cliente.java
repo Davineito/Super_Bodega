@@ -25,6 +25,9 @@ public class Cliente {
     @NotEmpty
     private String email;
 
+    @OneToOne
+    private Carrito carrito;
+
     public Cliente() {
         // Constructor vacío
     }

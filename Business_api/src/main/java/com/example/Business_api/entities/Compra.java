@@ -12,8 +12,7 @@ public class Compra {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)//autoincremental
     private Long id;
-    private String Cliente;
-    private Long nit;
+
     private Double total;
 
     @Column(name ="created_at")
@@ -24,9 +23,10 @@ public class Compra {
     private Cliente cliente;
 
     @ManyToMany
-    private List<Product> productos;
+    private List<Product> product;
 
     // captadores y definidores
+
 
     public Long getId() {
         return id;
@@ -34,22 +34,6 @@ public class Compra {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getCliente() {
-        return Cliente;
-    }
-
-    public void setCliente(String cliente) {
-        Cliente = cliente;
-    }
-
-    public Long getNit() {
-        return nit;
-    }
-
-    public void setNit(Long nit) {
-        this.nit = nit;
     }
 
     public Double getTotal() {
@@ -68,16 +52,19 @@ public class Compra {
         this.fechaCompra = fechaCompra;
     }
 
-    public void setCliente(com.example.Business_api.entities.Cliente cliente) {
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 
-    public List<Product> getProductos() {
-        return productos;
+    public List<Product> getProduct() {
+        return product;
     }
 
-    public void setProductos(List<Product> productos) {
-        this.productos = productos;
+    public void setProduct(List<Product> product) {
+        this.product = product;
     }
-
 }
