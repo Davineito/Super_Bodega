@@ -30,7 +30,7 @@ public class Product {
     @Temporal(TemporalType.DATE) //espesificar q es tipo fecha
     private Date createdAt;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "product")
     @JsonIgnore
     private List<Carrito> carrito;
 
@@ -38,6 +38,22 @@ public class Product {
     private List<Compra> compra;
 
     //Getters and setters
+
+    public List<Carrito> getCarrito() {
+        return carrito;
+    }
+
+    public void setCarrito(List<Carrito> carrito) {
+        this.carrito = carrito;
+    }
+
+    public List<Compra> getCompra() {
+        return compra;
+    }
+
+    public void setCompra(List<Compra> compra) {
+        this.compra = compra;
+    }
 
     public String getCategory() {
         return category;

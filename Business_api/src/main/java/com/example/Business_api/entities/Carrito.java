@@ -16,7 +16,7 @@ public class Carrito {
     private Cliente cliente;
 
     @ManyToMany
-    private List<Product> productos;
+    private List<Product> product = new ArrayList<>(); // Inicializa la lista
 
     //Getter y setters
 
@@ -36,11 +36,11 @@ public class Carrito {
         this.cliente = cliente;
     }
 
-    public List<Product> getProductos() {
-        return productos;
+    public List<Product> getProduct() {
+        return product;
     }
 
-    public void setProductos(List<Product> productos) {
-        this.productos = productos;
+    public void setProduct(List<Product> product) {
+        this.product = product;
     }
 }

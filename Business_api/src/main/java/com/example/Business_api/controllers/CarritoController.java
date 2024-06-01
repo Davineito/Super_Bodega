@@ -37,11 +37,11 @@ public class CarritoController {
         carrito.setCliente(cliente);
 
         // Verificar si la lista de productos es null
-        if (carrito.getProductos() == null) {
-            carrito.setProductos(new ArrayList<>());
+        if (carrito.getProduct() == null) {
+            carrito.setProduct(new ArrayList<>());
         }
 
-        carrito.getProductos().add(producto);
+        carrito.getProduct().add(producto);
 
         // Guardar carrito
         carritoRepository.save(carrito);
