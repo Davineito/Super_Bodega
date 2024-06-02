@@ -1,10 +1,9 @@
 package com.example.Business_api.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Entity
@@ -16,11 +15,18 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @NotEmpty
+    @Size(min = 2, max = 100)
     private String nombre;
     private String apellido;
     private String direccion;
     private Integer telefono;
+    @Email
+    @NotEmpty
     private String email;
+
+    @OneToOne
+    private Carrito carrito;
 
     public Cliente() {
         // Constructor vacío
